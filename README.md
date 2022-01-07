@@ -1,1 +1,1 @@
-Simple React feedback app
+Simple React Feedback app
