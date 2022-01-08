@@ -3,7 +3,7 @@ import {useState} from 'react';
 
 
 function RatingSelect({select}) {
-    const [selected, setSelected] = useState(10);
+    const [selected, setSelected] = useState();
 
     const handleChange = e => {
         setSelected(+e.currentTarget.value);
@@ -11,7 +11,7 @@ function RatingSelect({select}) {
     }
 
     return (
-       <ul className='rating'>
+    <ul className='rating'>
       <li>
         <input
           type='radio'
@@ -118,7 +118,7 @@ function RatingSelect({select}) {
           name='rating'
           value='10'
           onChange={handleChange}
-          checked={selected === 10}
+          defaultChecked={selected === 10}
         />
         <label htmlFor='num10'>10</label>
       </li>
