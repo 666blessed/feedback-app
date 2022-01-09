@@ -1,13 +1,20 @@
 import React from 'react';
-import {useState} from 'react';
+import {useState, useContext, useEffect} from 'react';
+import FeedbackContext from '../context/FeedbackContext';
 
 
 function RatingSelect({select}) {
     const [selected, setSelected] = useState();
 
+    const {feedbackEdit} = useContext(FeedbackContext);
+
+    useEffect(() => {
+      setSelected(feedbackEdit.item.rating)
+    }, [feedbackEdit])
+
     const handleChange = e => {
-        setSelected(+e.currentTarget.value);
-        select(+e.currentTarget.value);
+      setSelected(+e.currentTarget.value);
+      select(+e.currentTarget.value);
     }
 
     return (
@@ -118,7 +125,7 @@ function RatingSelect({select}) {
           name='rating'
           value='10'
           onChange={handleChange}
-          defaultChecked={selected === 10}
+          checked={selected === 10}
         />
         <label htmlFor='num10'>10</label>
       </li>
