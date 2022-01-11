@@ -63,7 +63,13 @@ export const FeedbackProvider = ({children}) => {
         const data = await response.json();
 
         setFeedback(feedback.map((item) => item.id === id ? {...item, ...data} : item));
-        setFeedbackEdit({item: {}, edit: false});
+        setFeedbackEdit({item: {"id": 12,
+            "rating": 10,
+            "text": "test test test"
+            },
+            edit: false
+        });
+
     };
 
     return <FeedbackContext.Provider value={{
