@@ -15,7 +15,7 @@ export const FeedbackProvider = ({children}) => {
     }, []);
 
     const fetchFeedback = async () => {
-        const response = await fetch('https://my-json-server.typicode.com/666blessed/666blessed.github.io/feedback?_sort=id&_order=desc');
+        const response = await fetch('https://my-json-server.typicode.com/666blessed/666blessed.github.io/feedback/');
         const data = await response.json();
 
         console.log(data);
