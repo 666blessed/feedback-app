@@ -15,7 +15,7 @@ export const FeedbackProvider = ({children}) => {
     }, []);
 
     const fetchFeedback = async () => {
-        const response = await fetch('/feedback?_sort=id&_order=desc');
+        const response = await fetch('666blessed/666blessed.github.io/feedback?_sort=id&_order=desc');
         const data = await response.json();
 
         console.log(data);
@@ -25,7 +25,7 @@ export const FeedbackProvider = ({children}) => {
     }
 
     const addFeedback = async (newFeedback) => {
-        const response = await fetch('/feedback', {
+        const response = await fetch('666blessed/666blessed.github.io/feedback', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -40,7 +40,7 @@ export const FeedbackProvider = ({children}) => {
 
     const deleteFeedback = async (id) => {
         if (window.confirm('Are you sure you want to delete?')) {
-            await fetch(`/feedback/${id}`, {method: 'DELETE'});
+            await fetch(`666blessed/666blessed.github.io/feedback/${id}`, {method: 'DELETE'});
 
             setFeedback(feedback.filter((item) => item.id !== id));
         }
@@ -54,7 +54,7 @@ export const FeedbackProvider = ({children}) => {
     };
 
     const updateFeedback = async (id, updatedItem) => {
-        const response = await fetch(`/feedback/${id}`, {
+        const response = await fetch(`666blessed/666blessed.github.io/feedback/${id}`, {
             method: 'PUT',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify(updatedItem)
