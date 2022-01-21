@@ -1,4 +1,5 @@
 import {createContext, useState, useEffect} from 'react';
+import {v4 as uuidv4} from 'uuid';
 
 const FeedbackContext = createContext();
 
@@ -17,8 +18,6 @@ export const FeedbackProvider = ({children}) => {
     const fetchFeedback = async () => {
         const response = await fetch('https://my-json-server.typicode.com/666blessed/backend-for-feedback-app/feedback/');
         const data = await response.json();
-
-        console.log(data);
         
         setFeedback(data);
         setIsLoading(false);
@@ -34,6 +33,7 @@ export const FeedbackProvider = ({children}) => {
         });
 
         const data = await response.json();
+        data.id = uuidv4();     
        
         setFeedback([data, ...feedback]);
     };
